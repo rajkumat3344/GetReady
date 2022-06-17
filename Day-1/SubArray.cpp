@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-//Brute Force Way
+//Brute Force Way - O(n*k)
 int maxSum(int arr[], int size, int k){
     int maxSum = 0;
-    for(int i=0 ; i<size-k ; i++){
+    for(int i=0 ; i<=size-k ; i++){
         int windowSum = 0;
         for(int j=i ; j<i+k; j++){
             windowSum += arr[j];
