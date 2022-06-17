@@ -1,14 +1,17 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-//Brute Force Way - O(n*k)
+//Sliding Window Algorithm - O(N)
 int maxSum(int arr[], int size, int k){
-    int maxSum = 0;
-    for(int i=0 ; i<=size-k ; i++){
-        int windowSum = 0;
-        for(int j=i ; j<i+k; j++){
-            windowSum += arr[j];
-        }
+    int windowSum = 0, maxSum = 0;
+    //Time Complexity - O(n)
+    for(int i=0 ; i<k ; i++){
+        windowSum += arr[i];
+    }
+
+    //Time Complexity - O(K)
+    for(int i=k ; i<size; i++){
+        windowSum += arr[i] - arr[i-k];
         maxSum = max(maxSum, windowSum);
     }
     return maxSum;
